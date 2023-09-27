@@ -1,0 +1,70 @@
+first_multiple_input = input().rstrip().split()
+n = int(first_multiple_input[0])
+m = int(first_multiple_input[1])
+matrix = []
+for _ in range(n):
+    matrix_item = input()
+    matrix.append(matrix_item)
+out=""
+for j in range(m):
+    for i in range(n):
+        char=matrix[i][j]
+        if char.isalnum():
+            out+=char
+        else:
+            out+= " "
+final= " ".join(out.split())
+print(final)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import re
+
+first_multiple_input = input().rstrip().split()
+n = int(first_multiple_input[0])
+m = int(first_multiple_input[1])
+matrix = []
+for _ in range(n):
+    matrix_item = input()
+    matrix.append(matrix_item)
+
+# Transpose the matrix
+matrix = list(zip(*matrix))
+
+# Join each column into a string and then join all strings
+decoded_string = ''.join(''.join(col) for col in matrix)
+
+# Replace one or more non-alphanumeric characters with a space
+final_string = re.sub(r'\W+', ' ', decoded_string)
+
+print(final_string)
